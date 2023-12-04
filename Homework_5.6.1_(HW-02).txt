@@ -8,9 +8,10 @@ def greeting():
         sep='\n')
 
 def show_playfield():
-    print(" ")
-    print("   | 0 | 1 | 2 | ")
-    print("-----------------")
+    print(" ",
+          "   | 0 | 1 | 2 | ",
+          "-----------------",
+          sep='\n')
     for i, row in enumerate(field):
         row_str = f" {i} | {' | '.join(row)} | "
         print(row_str)
@@ -21,31 +22,35 @@ def ask_coords():
         coords = input("    Ваш ход: ").split()
 
         if len(coords) != 2:
-            print(" ")
-            print(" Введите 2 координаты! ")
-            print(" ")
+            print(" ",
+                " Введите 2 координаты! ",
+                " ",
+                sep='\n')
             continue
 
         x, y = coords
 
         if not(x.isdigit()) or not(y.isdigit()):
-            print(" ")
-            print(" Введите числа! ")
-            print(" ")
+            print(" ",
+                " Введите числа! ",
+                " ",
+                sep='\n')
             continue
 
         x, y = int(x), int(y)
 
         if 0 > x or x > 2 or 0 > y or y > 2:
-            print(" ")
-            print(" Координаты вне диапазона! ")
-            print(" ")
+            print(" ",
+                " Координаты вне диапазона! ",
+                " ",
+                sep='\n')
             continue
 
         if field[x][y] != " ":
-            print(" ")
-            print(" Клетка занята! ")
-            print(" ")
+            print(" ",
+                " Клетка занята! ",
+                " ",
+                sep='\n')
             continue
 
         return x, y
